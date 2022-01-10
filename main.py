@@ -1,5 +1,7 @@
 # Password manager
-from  generator import Generator
+from generator import Generator
+from manager import Manager
+
 print("Wellcome to Password manager")
 
 def manual():
@@ -7,20 +9,27 @@ def manual():
     print("""
         Enter 'q' to quit 
         Enter 'h' for help
-        Enter 'n' for new entry    
         Enter 'g' to generate password
+        Enter 'n' for new entry
+        Enter 'd' to delete
     """)
 
 manual()
 # Main Loop
+manager = Manager()
+print(f"\n\n {manager} \n\n")
+
 while True:
     inp = input("-> ")
 
     if inp.lower() == 'q':
+        manager.close_db()
         break
     elif inp.lower() == 'h':
         manual()
     elif inp.lower() == 'n':
+        pass
+    elif inp.lower() == 'd':
         pass
     elif inp.lower() == 'g':
         # for testing only, i might sift this code block to genetor.py later!
