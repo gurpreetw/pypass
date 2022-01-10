@@ -15,10 +15,11 @@ def manual():
     """)
 
 manual()
-# Main Loop
 manager = Manager()
-print(f"\n\n {manager} \n\n")
+gen = Generator()
+# print(f"\n\n {manager} \n\n")
 
+# Main Loop
 while True:
     inp = input("-> ")
 
@@ -28,18 +29,14 @@ while True:
     elif inp.lower() == 'h':
         manual()
     elif inp.lower() == 'n':
-        pass
+        manager.new_entry()
     elif inp.lower() == 'd':
         pass
     elif inp.lower() == 'g':
-        # for testing only, i might sift this code block to genetor.py later!
-        print("Enter length password of password you want :")
-        while inp != "\n":
-            inp = input("(Length) -> ")
-            password = Generator(num=inp).generate()
-            print(f"Random a password is : \t {password}")
+        password = gen.generate_multiple()
+        print(f"Random a password is : \t {password}")
 
-            print("Press 'enter' to continue and Press 'a' to generate password again")    
+
     else:
         print("Please enter correct input or Enter 'h' for help")
 
